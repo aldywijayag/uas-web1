@@ -16,7 +16,7 @@ $warung = new Warung($conn);
 
 $data = json_decode(file_get_contents("php://input"));
 
-$warung->id_barang = $data->id_barang;
+$warung->id_barang = $warung->id_barang;
 
 $response = [];
 
@@ -30,12 +30,12 @@ if ($request == 'DELETE') {
             $response = array(
                 'status' =>  array(
                     'messsage' => 'Success', 'code' => (http_response_code(200))
-                )
+                ), 'data' => $data
             );
         } else {
             http_response_code(400);
             $response = array(
-                'messsage' => 'Delete Failed',
+                'messsage' => 'Add Failed',
                 'code' => http_response_code()
             );
         }
@@ -43,7 +43,7 @@ if ($request == 'DELETE') {
         http_response_code(400);
         $response = array(
             'status' =>  array(
-                'messsage' => 'Delete Failed - Wrong Parameter', 'code' => http_response_code()
+                'messsage' => 'Add Failed - Wrong Parameter', 'code' => http_response_code()
             )
         );
     }

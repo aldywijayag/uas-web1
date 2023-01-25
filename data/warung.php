@@ -1,26 +1,27 @@
 <?php
 class Warung
 {
-	public $id_barang;
-	public $nama_barang;
-	public $jumlah_barang;
-	public $harga_barang;
+    public $id_barang;
+    public $nama_barang;
+    public $jumlah_barang;
+    public $harga_barang;
 
-	private $conn;
-	private $table = "data_barang";
+    private $conn;
+    private $table = "data_barang";
 
-	public function __construct($conn)
-	{
-		$this->conn = $conn;
-	}
+    public function __construct($conn)
+    {
+        $this->conn = $conn;
+    }
 
-	function fetch(){
-		$query = "SELECT * FROM " . $this->table;
-		$stmt = $this->conn->prepare($query);
-		$stmt->execute();
-		return $stmt;
-	}
-    
+    function fetch()
+    {
+        $query = "SELECT * FROM " . $this->table;
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
     //LibraryGet
     function get()
     {
@@ -88,7 +89,6 @@ class Warung
         return false;
     }
 
-
     //LibraryDelete
     function delete()
     {
@@ -102,6 +102,4 @@ class Warung
 
         return false;
     }
-
-
 }

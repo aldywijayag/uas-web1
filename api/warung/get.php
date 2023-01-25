@@ -1,53 +1,53 @@
-<?php
-header("Access-Control-Allow-Origin: *");
-header('Access-Control-Allow-Methods: GET');
-header('Access-Control-Allow-Headers: X-Requested-With');
-header("Content-Type: application/json; charset=UTF-8");
+    <?php
+    header("Access-Control-Allow-Origin: *");
+    header('Access-Control-Allow-Methods: GET');
+    header('Access-Control-Allow-Headers: X-Requested-With');
+    header("Content-Type: application/json; charset=UTF-8");
 
-include_once "../../config/database.php";
-include_once "../../data/warung.php";
+    include_once "../../config/database.php";
+    include_once "../../data/warung.php";
 
-$request = $_SERVER['REQUEST_METHOD'];
+    $request = $_SERVER['REQUEST_METHOD'];
 
-$db = new Database();
-$conn = $db->connection();
+    $db = new Database();
+    $conn = $db->connection();
 
-$warung = new Warung($conn);
+    $warung = new Warung($conn);
 
-$warung->id_barang = isset($_GET['id_barang']) ? $_GET['id_barang'] : die();
+    $warung->id_barang = isset($_GET['id_barang']) ? $_GET['id_barang'] : die();
 
-$warung->get();
+    $warung->get();
 
-$response = [];
+    $response = [];
 
-if ($request == 'GET') {
-    if ($warung->id_barang != null) {
-        $data = array(
-            'id_barang' => $warung->id_barang,
-            'nama_barang' => $warung->nama_barang,
-            'jumlah_barang' => $warung->jumlah_barang,
-            'harga_barang' => $warung->harga_barang,
-        );
-        $response = array(
-            'status' =>  array(
-                'messsage' => 'Success', 'code' => (http_response_code(200))
-            ), 'data' => $data
-        );
+    if ($request == 'GET') {
+        if ($warung->id_barang != null) {
+            $data = array(
+                'id_barang' => $warung->id_barang,
+                'nama_barang' => $warung->nama_barang,
+                'jumlah_barang' => $warung->jumlah_barang,
+                'harga_barang' => $warung->harga_barang,
+            );
+            $response = array(
+                'status' =>  array(
+                    'messsage' => 'Success', 'code' => (http_response_code(200))
+                ), 'data' => $data
+            );
+        } else {
+            http_response_code(404);
+            $response = array(
+                'status' =>  array(
+                    'messsage' => 'No Data Found', 'code' => http_response_code()
+                )
+            );
+        }
     } else {
-        http_response_code(404);
+        http_response_code(405);
         $response = array(
             'status' =>  array(
-                'messsage' => 'No Data Found', 'code' => http_response_code()
+                'messsage' => 'Method Not Allowed', 'code' => http_response_code()
             )
         );
     }
-} else {
-    http_response_code(405);
-    $response = array(
-        'status' =>  array(
-            'messsage' => 'Method Not Allowed', 'code' => http_response_code()
-        )
-    );
-}
 
-echo json_encode($response);
+    echo json_encode($response);
