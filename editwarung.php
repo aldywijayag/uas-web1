@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Warung</title>
+    <title>Edit Warung</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="margin-left: 50px;">
-                <img src="../assets/alliance.png" alt="Logo" width="25">
+                <img src="assets/alliance.png" alt="Logo" width="25">
                 Aldy Wijaya Gustian (19552011351)
             </a>
 
@@ -33,7 +33,7 @@
     <div class="container">
         <div class="card mt-4 w-50 mx-auto">
             <div class="card-header">
-                <h3>Tambah Data Warung</h3>
+                <h3>Edit Data Warung</h3>
             </div>
             <div class="card-body">
                 <form method="post" action="">
@@ -53,7 +53,7 @@
                     <div class="form-group row p-2">
                         <label for="harga_barang" class="col-sm-4 col-form-label">Harga Barang</label>
                         <div class="col-sm-8">
-                            <input type="number" name="harga_barang" class="form-control" id="harga_barang" value="">
+                            <input type="c" name="harga_barang" class="form-control" id="harga_barang" value="">
                         </div>
                     </div>
                     <div class="form-group row p-1">

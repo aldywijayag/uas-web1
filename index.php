@@ -54,7 +54,7 @@
 	<script>
 		$(document).ready(function() {
 			$.ajax({
-				"url": "http://localhost/web1/uas-web1/latihan-pdo-php-api/api/warung/fetch",
+				"url": "http://localhost/web1/uas-web1/api/warung/fetch",
 				"method": "GET",
 				"success": function(response) {
 					$.each(response.data, function(i, warung) {
@@ -63,8 +63,8 @@
 							`<td>${warung.nama_barang}</td>` +
 							`<td>${warung.jumlah_barang}</td>` +
 							`<td>${warung.harga_barang}</td>` +
-							`<td><a href="/web1/uas-web1/latihan-pdo-php-api/edit?id=${warung.id_barang}" class="btn btn-primary">Edit</a>` +
-							`<button data-href="/web1/uas-web1/latihan-pdo-php-api/api/warung/delete" data-id="${warung.id_barang}" class="btn btn-danger btn-delete ms-1">Delete</button>` +
+							`<td><a href="/web1/uas-web1/editwarung/edit?id=${warung.id_barang}" class="btn btn-primary">Edit</a>` +
+							`<button data-href="/web1/uas-web1/api/warung/delete" data-id="${warung.id_barang}" class="btn btn-danger btn-delete ms-1">Delete</button>` +
 							'</td>' +
 							'</tr>';
 
